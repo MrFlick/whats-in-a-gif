@@ -122,14 +122,14 @@
 	in the image data, it's your cue to reinitialize the code table. (I'll 
 	explain why you might need to do this in a bit.) The second new code 
 	is the <em>end of information code</em> (EOI). When you come across 
-	this code, this means you've reached the end of the image. Here i've placed
+	this code, this means you've reached the end of the image. Here I've placed
 	the special codes right after the color codes, but actually the value of
 	the special codes depends on the value of the LZW minimum code size
 	from the image data block. If the LZW minimum code size is the same as
-	the color table size, then special codes immediatly follow the colors; however
+	the color table size, then special codes immediately follow the colors; however
 	it is possible to specify a larger LWZ minimum code size which may leave
 	a gap in the codes where no colors are assigned. This can be
-	summarizaed in the <a name="color_table_size">following table</a>.
+	summarized in the <a name="color_table_size">following table</a>.
 	</p>
 	
 	<div style="text-align:center">
@@ -490,7 +490,7 @@
 	in the code stream itself to be able to rebuild it.
 	</p>
 	
-	<p>Again, i'll list the algorithm and then we will walk though an example. Let
+	<p>Again, I'll list the algorithm and then we will walk though an example. Let
 	me define a few terms i will be using. CODE will be current code we're working 
 	with. CODE-1 will be the code just before CODE in the code stream. {CODE} 
 	will be the value for CODE in the code table. For example, using the code
@@ -645,7 +645,7 @@
 	the code for #4, you would look at this binary equivalent, which is 100, 
 	and see that you would need three bits to store this value. The largest code
 	value in our sample code stream is #36 (binary: 100100) which would 
-	take 6 bits to encode. Note that the number of bits i've just given is 
+	take 6 bits to encode. Note that the number of bits I've just given is 
 	the minimum number. You can make the number take up more bits by adding
 	zeros to the front.
 	</p>
@@ -724,7 +724,7 @@
 	Each of the data sub-blocks begins with a byte that specifies how many
 	bytes of data. The value will be between 1 and 255. After you read those bytes,
 	the next byte indicates again how many bytes of data follow. You stop when you 
-	encounter a subblock that has a lenght of zero. That tells you when you've 
+	encounter a subblock that has a length of zero. That tells you when you've 
 	reached the end of the image data. In our sample the image the byte just after 
 	the LZW code size is <span class="byte">16</span> which indicates that 22
 	bytes of data follow. After we reach those, we see the next byte is
@@ -740,7 +740,7 @@
 	
 	<h2>Next: Animation and Transparency</h2>
 	<p>That is pretty much everything you need to know to read or generate 
-	a basic image file. One of the reasons the GIF becames such a popular
+	a basic image file. One of the reasons the GIF became such a popular
 	format was because it also allowed for &quot;fancier&quot; features. These
 	features include animation and transparency. Next we'll look 
 	at how those work.

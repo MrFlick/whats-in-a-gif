@@ -5,5 +5,5 @@ These are the source files for the guide that resides at
 
     http://matthewflickinger.com/lab/whatsinagif/index.html
 
-Note the files have a .asp extention for historical reasons.
+Note the files have a .asp extension for historical reasons.
 They should be all plain HTML files.

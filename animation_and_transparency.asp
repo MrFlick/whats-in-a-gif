@@ -64,7 +64,7 @@
 	which tells us that our image is 11px by 29 px and will have a global color table
 	with 8 colors in it (of which we only really need 5). Immediately after, follows
 	the global color table which tells us what those colors are (0=red, 1=green,
-	2=yellow, 3=light grey, 4=black, 5=white, 6=black [not used], 7=black [not used] ).
+	2=yellow, 3=light gray, 4=black, 5=white, 6=black [not used], 7=black [not used] ).
 	</p>
 	<p>
 	Next we encounter an 
@@ -124,7 +124,7 @@
 	a disposal method. The seventh bit in they byte is the <em>user input
 	flag</em>. When set to 1, that means that the decoder will wait for
 	some sort of &quot;input&quot; from the person viewing the image before
-	moving on to the next scene. I'm guessing it's highly unlikeley
+	moving on to the next scene. I'm guessing it's highly unlikely
 	that you will encounter any other value that 0 for this bit. 
 	The final bit is the transparency flag. We will go into more
 	detail about transparency in 

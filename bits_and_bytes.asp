@@ -124,7 +124,7 @@
 	be the case).  The next three bits represent the <strong>color resolution</strong>. The spec
 	says this value &quot; is the number of bits per primary color available to the original image, 
 	minus 1&quot; and &quot;...represents the size of the entire palette from which the colors in the
-	graphic were selected.&quot; Because i don't much about what this one does, i'll point you to
+	graphic were selected.&quot; Because i don't much about what this one does, I'll point you to
 	a more knowledgeable article on <a href="http://www.devx.com/projectcool/Article/19997/0/page/7">bit and color depth</a>.
 	For now 1 seems to work. Note that <span class="byte">001</span> represents 2 bits/pixel;
 	<span class="byte">111</span> would represent 8 bits/pixel.
@@ -146,7 +146,7 @@
 	</p>
 	<p>
 	The last byte of the logical screen descriptor is the <strong>pixel aspect ratio</strong>.
-	I'm not exactly sure what this value does. Most of the images i've seen have this value 
+	I'm not exactly sure what this value does. Most of the images I've seen have this value 
 	set to 0. The spec says that if there was a value specified in this byte, N, the actual
 	ratio used would be (N + 15) / 64 for all N&lt;&gt;0.
 	</p>	
@@ -207,7 +207,7 @@
 	<p>From Sample File: <span class="byte gif_graphic"> 21 </span><span class="byte gif_graphic"> F9 </span><span class="byte gif_graphic"> 04 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span></p>
 	<p>
 	Graphic control extension blocks are used frequently to 
-	specify transparency settings and control animations. They are completly optional.
+	specify transparency settings and control animations. They are completely optional.
 	Since transparency and animations are bit complicated, I will hold off on many of
 	the details of this block until a later section
 	(see <a href="animation_and_transparency.asp">Transparency and Animation</a>). 
@@ -325,7 +325,7 @@
 	Oddly enough the spec allows you to specify text which you wish to 
 	have rendered on the image. I followed the spec to see if any application
 	would understand this command; but IE, FireFox, and Photoshop all failed 
-	to render the text. Rather than explaining all the bytes, i'll tell you 
+	to render the text. Rather than explaining all the bytes, I'll tell you 
 	how to recognize this block and skip over it
 	</p>
 	<p>
