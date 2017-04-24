@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>3MF Project: What's In A GIF - LZW Image Data</title>	
+	<title>3MF Project: What's In A GIF - LZW Image Data</title>
 	<script type="text/javascript"></script>
 	<link rel="stylesheet" href="../proj.css" />
 	<style type="text/css">
@@ -82,18 +82,19 @@
 	
 	<p>
 	[ Much of the following information came from John Barkaus's 
-	<a href="http://www.danbbs.dk/~dino/whirlgif/lzw.html">LZW and GIF Explained</a>. 
+	<a href="http://www.danbbs.dk/~dino/whirlgif/lzw.html">LZW and GIF Explained</a>
+        (<a href="http://web.archive.org/web/20050217131148/http://www.danbbs.dk/~dino/whirlgif/lzw.html">archive</a>). 
 	I've tried to provide more detailed samples as well
-	as illustrations to make the process even clearer; but if i've
-	made something unclear, i would recommend consulting John's original guide. ]
+	as illustrations to make the process even clearer; but if I've
+	made something unclear, I would recommend consulting John's original guide. ]
 	</p>
 	
 	
 	<h2><a name="lzw_compression">LZW Compression</a></h2>
 	<p>
-	The compression method we can use is called LZW compression. (Actually it is 
-	a slight variation from the standard LZW for use in GIF images.) To start using this 
-	method, we need a <strong>code table</strong>. This code table will allow
+	LZW compression is used in GIF files to reduce file size. (Actually it is 
+	a slight variation from the standard LZW for use in GIF images.) This method 
+	requires building a <strong>code table</strong>. This code table will allow
 	us to use special codes to indicate a sequence of colors rather than just one at
 	a time.  The first thing we do is to <em>initialize the code table</em>. 
 	We start by adding a code for each of the colors in the color table. This would be a
@@ -152,8 +153,8 @@
 	<strong>index buffer</strong> will be the list of color indexes
 	we care &quot;currently looking at.&quot; The index buffer will contain a list
 	of one or more color indexes. Now we can step though the LZW 
-	compression algorithm. First, i'll just list the steps. After that
-	i'll walk through the steps with our specific example.
+	compression algorithm. First, I'll just list the steps. After that
+	I'll walk through the steps with our specific example.
 	</p>
 	<ul>
 	<li>Initialize code table</li>
@@ -691,10 +692,10 @@
 	<p>
 	Jumping back to our sample image, we see that we have a minimum code
 	size value of 2 which means out first code size will be 3 bits long. 
-	Out first three codes, #1 #6 and #6, would be coded as 001 110 and 110.
-	If you see at Step 6 of the encoding, we added a code of #7 to our code
-	table. This is our clue to increase our code size because 7 is equal to
-	2^3-1 (where 3 is our current code size). Thus, the next code we 
+	Out first four codes, #1 #6 and #6, would be coded as 001 110 and 110.
+	If you see at Step 10 of the encoding, we added a code of #8 to our code
+	table. This is our clue to increase our code size because 8 is equal to
+	2^3 (where 3 is our current code size). Thus, the next code we 
 	write out, #2, will use the new code size of 4 and therefore look
 	like 0010. In the decoding process, we again would increase our code
 	size when we read the code for #7 and would read the next 4, rather than
@@ -734,7 +735,7 @@
 	A sample illustration of the process follows which shows how you would
 	extract codes if the first code size were 5 bits.
 	</p>
-<p style="text-align:center"><img src="lzw_decoding%20_bytes.gif" alt="Decoding LZW Bytes" style="border: 1px solid black" / WIDTH="500" HEIGHT="220"></p>
+	<p style="text-align:center"><img src="lzw_decoding%20_bytes.gif" alt="Decoding LZW Bytes" style="border: 1px solid black" / WIDTH="500" HEIGHT="220"></p>
 	
 	
 	<h2>Next: Animation and Transparency</h2>
