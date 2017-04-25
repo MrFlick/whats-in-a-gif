@@ -735,7 +735,7 @@
 	A sample illustration of the process follows which shows how you would
 	extract codes if the first code size were 5 bits.
 	</p>
-	<p style="text-align:center"><img src="images/lzw_decoding%20_bytes.gif" alt="Decoding LZW Bytes" style="border: 1px solid black" / WIDTH="500" HEIGHT="220"></p>
+	<p style="text-align:center"><img src="images/lzw_decoding_bytes.gif" alt="Decoding LZW Bytes" style="border: 1px solid black" / WIDTH="500" HEIGHT="220"></p>
 
 
 	<h2>Next: Animation and Transparency</h2>
