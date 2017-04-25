@@ -32,13 +32,13 @@
 
 <div class="projdesc">
 	<p>
-	In addition to being able to store simple image data like some old bmp file, 
+	In addition to being able to store simple image data like some old bmp file,
 	GIF files (specifically GIF89a files) allow for some special features. Tricks
-	such as transparency and animation can be accomplished with the 
+	such as transparency and animation can be accomplished with the
 	help of the Graphics Control Extension block. Here's a sample of what this
 	block looks like:
 	</p>
-	<p style="text-align:center"><img src="graphic_control_ext.gif" alt="GIF graphics control ext block layout" style="border: 1px solid black" /></p>
+	<p style="text-align:center"><img src="images/graphic_control_ext.gif" alt="GIF graphics control ext block layout" style="border: 1px solid black" /></p>
 	<p>
 	I'll show you how to manipulate the bytes in this block to achieve these
 	special effects.
@@ -47,13 +47,13 @@
 	<h2><a name="animation">Animation</a></h2>
 	<p>
 	Cartoons are created by animators who draw a bunch of pictures, each slightly
-	different from the one before, which, when rapidly shown one after the other, 
+	different from the one before, which, when rapidly shown one after the other,
 	give the illusion of motion. Animation in GIF images is achieved in much the same
-	way. Multiple images may be stored in the same file and you can tell the 
+	way. Multiple images may be stored in the same file and you can tell the
 	computer how much time to wait before showing the next image. Let's walk though
 	the parts that make up this simple traffic light animation.
 	</p>
-	<p style="text-align:center"><img src="sample_2_animation.gif" alt="sample animated traffic light" / WIDTH="11" HEIGHT="29"></p>
+	<p style="text-align:center"><img src="images/sample_2_animation.gif" alt="sample animated traffic light" / WIDTH="11" HEIGHT="29"></p>
 	<p>
 	<span class="byte gif_header"> 47 </span><span class="byte gif_header"> 49 </span><span class="byte gif_header"> 46 </span><span class="byte gif_header"> 38 </span><span class="byte gif_header"> 39 </span><span class="byte gif_header"> 61 </span><span class="byte gif_screen"> 0B </span><span class="byte gif_screen"> 00 </span><span class="byte gif_screen"> 1D </span><span class="byte gif_screen"> 00 </span><span class="byte gif_screen"> A2 </span><span class="byte gif_screen"> 05 </span><span class="byte gif_screen"> 00 </span><span class="byte gif_color"> FF </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> FF </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> FF </span><span class="byte gif_color"> FF </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 8E </span><span class="byte gif_color"> 8E </span><span class="byte gif_color"> 8E </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> FF </span><span class="byte gif_color"> FF </span><span class="byte gif_color"> FF </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_color"> 00 </span><span class="byte gif_ext"> 21 </span><span class="byte gif_ext"> FF </span><span class="byte gif_ext"> 0B </span><span class="byte gif_ext"> 4E </span><span class="byte gif_ext"> 45 </span><span class="byte gif_ext"> 54 </span><span class="byte gif_ext"> 53 </span><span class="byte gif_ext"> 43 </span><span class="byte gif_ext"> 41 </span><span class="byte gif_ext"> 50 </span><span class="byte gif_ext"> 45 </span><span class="byte gif_ext"> 32 </span><span class="byte gif_ext"> 2E </span><span class="byte gif_ext"> 30 </span><span class="byte gif_ext"> 03 </span><span class="byte gif_ext"> 01 </span><span class="byte gif_ext"> 00 </span><span class="byte gif_ext"> 00 </span><span class="byte gif_ext"> 00 </span><span class="byte gif_graphic"> 21 </span><span class="byte gif_graphic"> F9 </span><span class="byte gif_graphic"> 04 </span><span class="byte gif_graphic"> 04 </span><span class="byte gif_graphic"> 64 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_imgdesc"> 2C </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 0B </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 1D </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdata"> 03 </span><span class="byte gif_imgdata"> 30 </span><span class="byte gif_imgdata"> 48 </span><span class="byte gif_imgdata"> BA </span><span class="byte gif_imgdata"> DC </span><span class="byte gif_imgdata"> DE </span><span class="byte gif_imgdata"> 23 </span><span class="byte gif_imgdata"> BE </span><span class="byte gif_imgdata"> 48 </span><span class="byte gif_imgdata"> 21 </span><span class="byte gif_imgdata"> AD </span><span class="byte gif_imgdata"> EB </span><span class="byte gif_imgdata"> 62 </span><span class="byte gif_imgdata"> A5 </span><span class="byte gif_imgdata"> 25 </span><span class="byte gif_imgdata"> D3 </span><span class="byte gif_imgdata"> 93 </span><span class="byte gif_imgdata"> F7 </span><span class="byte gif_imgdata"> 8C </span><span class="byte gif_imgdata"> E4 </span><span class="byte gif_imgdata"> 27 </span><span class="byte gif_imgdata"> 9A </span><span class="byte gif_imgdata"> 1B </span><span class="byte gif_imgdata"> D7 </span><span class="byte gif_imgdata"> A1 </span><span class="byte gif_imgdata"> 17 </span><span class="byte gif_imgdata"> 9B </span><span class="byte gif_imgdata"> 1E </span><span class="byte gif_imgdata"> A0 </span><span class="byte gif_imgdata"> F3 </span><span class="byte gif_imgdata"> 96 </span><span class="byte gif_imgdata"> 34 </span><span class="byte gif_imgdata"> 13 </span><span class="byte gif_imgdata"> DC </span><span class="byte gif_imgdata"> CF </span><span class="byte gif_imgdata"> AD </span><span class="byte gif_imgdata"> 37 </span><span class="byte gif_imgdata"> 7A </span><span class="byte gif_imgdata"> 6F </span><span class="byte gif_imgdata"> F7 </span><span class="byte gif_imgdata"> B8 </span><span class="byte gif_imgdata"> 05 </span><span class="byte gif_imgdata"> 30 </span><span class="byte gif_imgdata"> 28 </span><span class="byte gif_imgdata"> F4 </span><span class="byte gif_imgdata"> 39 </span><span class="byte gif_imgdata"> 76 </span><span class="byte gif_imgdata"> B5 </span><span class="byte gif_imgdata"> 64 </span><span class="byte gif_imgdata"> 02 </span><span class="byte gif_imgdata"> 00 </span><span class="byte gif_graphic"> 21 </span><span class="byte gif_graphic"> F9 </span><span class="byte gif_graphic"> 04 </span><span class="byte gif_graphic"> 04 </span><span class="byte gif_graphic"> 32 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_imgdesc"> 2C </span><span class="byte gif_imgdesc"> 02 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 0B </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 07 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 10 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdata"> 03 </span><span class="byte gif_imgdata"> 19 </span><span class="byte gif_imgdata"> 78 </span><span class="byte gif_imgdata"> 27 </span><span class="byte gif_imgdata"> AC </span><span class="byte gif_imgdata"> CB </span><span class="byte gif_imgdata"> 0D </span><span class="byte gif_imgdata"> CA </span><span class="byte gif_imgdata"> 49 </span><span class="byte gif_imgdata"> E1 </span><span class="byte gif_imgdata"> B3 </span><span class="byte gif_imgdata"> 0A </span><span class="byte gif_imgdata"> BB </span><span class="byte gif_imgdata"> CD </span><span class="byte gif_imgdata"> F7 </span><span class="byte gif_imgdata"> F8 </span><span class="byte gif_imgdata"> CE </span><span class="byte gif_imgdata"> 27 </span><span class="byte gif_imgdata"> 1E </span><span class="byte gif_imgdata"> 62 </span><span class="byte gif_imgdata"> 69 </span><span class="byte gif_imgdata"> 9E </span><span class="byte gif_imgdata"> A3 </span><span class="byte gif_imgdata"> 19 </span><span class="byte gif_imgdata"> 82 </span><span class="byte gif_imgdata"> 47 </span><span class="byte gif_imgdata"> 02 </span><span class="byte gif_imgdata"> 00 </span><span class="byte gif_graphic"> 21 </span><span class="byte gif_graphic"> F9 </span><span class="byte gif_graphic"> 04 </span><span class="byte gif_graphic"> 04 </span><span class="byte gif_graphic"> 64 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_imgdesc"> 2C </span><span class="byte gif_imgdesc"> 02 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 02 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 07 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 10 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdesc"> 00 </span><span class="byte gif_imgdata"> 03 </span><span class="byte gif_imgdata"> 19 </span><span class="byte gif_imgdata"> 78 </span><span class="byte gif_imgdata"> 07 </span><span class="byte gif_imgdata"> AC </span><span class="byte gif_imgdata"> CB </span><span class="byte gif_imgdata"> 0D </span><span class="byte gif_imgdata"> CA </span><span class="byte gif_imgdata"> 49 </span><span class="byte gif_imgdata"> E1 </span><span class="byte gif_imgdata"> B3 </span><span class="byte gif_imgdata"> 0A </span><span class="byte gif_imgdata"> BB </span><span class="byte gif_imgdata"> CD </span><span class="byte gif_imgdata"> F7 </span><span class="byte gif_imgdata"> F8 </span><span class="byte gif_imgdata"> CE </span><span class="byte gif_imgdata"> 27 </span><span class="byte gif_imgdata"> 1E </span><span class="byte gif_imgdata"> 62 </span><span class="byte gif_imgdata"> 69 </span><span class="byte gif_imgdata"> 9E </span><span class="byte gif_imgdata"> A3 </span><span class="byte gif_imgdata"> 19 </span><span class="byte gif_imgdata"> 82 </span><span class="byte gif_imgdata"> 45 </span><span class="byte gif_imgdata"> 02 </span><span class="byte gif_imgdata"> 00 </span><span class="byte gif_trailer"> 3B </span>
 	</p>
@@ -67,7 +67,7 @@
 	2=yellow, 3=light gray, 4=black, 5=white, 6=black [not used], 7=black [not used] ).
 	</p>
 	<p>
-	Next we encounter an 
+	Next we encounter an
 	<a href="bits_and_bytes.asp#application_extension_block">application extension block</a>.
 	This is this block that causes our animation to repeat rather than play once
 	and stop. The first three bytes tell us we are looking at (1) an extension
@@ -84,31 +84,31 @@
 	</p>
 	<p>
 	This very basic animation is essentially made up of three different &quot;scenes&quot;.
-	The first is the one with the green light lit, the second with the yellow, and the 
+	The first is the one with the green light lit, the second with the yellow, and the
 	last with the red. You should be able to see three separate chunks of image data
-	in the bytes above. 
+	in the bytes above.
 	</p>
 	<table style="margin-left: auto;margin-right: auto">
 		<tr><th>1</th><th>2</th><th>3</th></tr>
 		<tr>
-		<td><img src="sample_2_animation_green.gif" alt="scene 1: green light" width="11" height="29"/></td>
-		<td><img src="sample_2_animation_yellow.gif" alt="scene 2: yellow light" width="11" height="29"/></td>
-		<td><img src="sample_2_animation_red.gif" alt="scene 3: red light" width="11" height="29"/></td>
+		<td><img src="images/sample_2_animation_green.gif" alt="scene 1: green light" width="11" height="29"/></td>
+		<td><img src="images/sample_2_animation_yellow.gif" alt="scene 2: yellow light" width="11" height="29"/></td>
+		<td><img src="images/sample_2_animation_red.gif" alt="scene 3: red light" width="11" height="29"/></td>
 		</tr>
 	</table>
 	<p>
-	The first chunk begins immediately after the application extension block. 
+	The first chunk begins immediately after the application extension block.
 	It is there we encounter our first graphic control extension. As with all
 	extensions, it begins with <span class="byte">21</span>. Next, the type
-	specific label for the graphic control type of extension is 
-	<span class="byte">F9</span>. Next we see the byte size of the 
+	specific label for the graphic control type of extension is
+	<span class="byte">F9</span>. Next we see the byte size of the
 	data in the block; this should always be <span class="byte">04</span>. The
-	first of these four data blocks is a packed field. 
+	first of these four data blocks is a packed field.
 	</p>
 	<p>
-	The packed field stores three values. The first three (highest) bits 
-	are &quot;reserved for future use&quot; so those have been left as 
-	zeros. The next three bits indicate the 
+	The packed field stores three values. The first three (highest) bits
+	are &quot;reserved for future use&quot; so those have been left as
+	zeros. The next three bits indicate the
 	disposal method. The <em>disposal method</em> specifies what happens to
 	the current image data when you move onto the next. We have three bits which
 	means we can represent a number between 0 and 7. Our sample animated
@@ -119,17 +119,17 @@
 	that the decoder should restore the canvas to its previous state
 	before the current image was drawn. I don't believe that this value is
 	widely supported but haven't had the chance to test it out. The behavior
-	for values 4-7 are yet to be defined. If this image were not animated, 
-	these bits would have been set to 0 which indicates that do not wish to specify 
+	for values 4-7 are yet to be defined. If this image were not animated,
+	these bits would have been set to 0 which indicates that do not wish to specify
 	a disposal method. The seventh bit in they byte is the <em>user input
 	flag</em>. When set to 1, that means that the decoder will wait for
 	some sort of &quot;input&quot; from the person viewing the image before
 	moving on to the next scene. I'm guessing it's highly unlikely
-	that you will encounter any other value that 0 for this bit. 
+	that you will encounter any other value that 0 for this bit.
 	The final bit is the transparency flag. We will go into more
-	detail about transparency in 
+	detail about transparency in
 	<a href="#transparency">the next section</a>. Since this image isn't
-	using any transparency, we see this bit has been left at 0. 
+	using any transparency, we see this bit has been left at 0.
 	</p>
 	<p>
 	The next two bytes are the delay time. This value is in the usual
@@ -137,14 +137,14 @@
 	represents the number of hundredths of a second to wait before moving
 	on to the next scene. We see that our sample image has specified
 	a value of 100 (<span class="byte">64</span> <span class="byte">00</span>)
-	in the first graphics control block which means we would wait 1 second 
+	in the first graphics control block which means we would wait 1 second
 	before changing our green light to yellow.
 	</p>
 	<p>
 	Our graphics control extension block ends with the block
 	terminator <span class="byte">00</span>. You will notice this
 	type of block appearing two more times in this image, the second
-	instance differing only in the delay time (the yellow light only 
+	instance differing only in the delay time (the yellow light only
 	stays up for half a second).
 	</p>
 	</p>
@@ -152,32 +152,32 @@
 	will be drawing an image starting at the top left corner and taking
 	up the whole canvas (11px x 29px). This block is followed by the image
 	data that contains all the codes to draw the first scene, the one with
-	the green light on. 
+	the green light on.
 	</p>
 	<table style="margin-left: auto;margin-right: auto; text-align: center">
 		<tr><th>Green</th><th>(Difference)</th><th>Yellow</th></tr>
 		<tr>
-		<td><img src="sample_2_green_large.gif" alt="green light enlarged" width="33" height="87"/></td>
-		<td><img src="sample_2_green_yellow_diff.gif" alt="difference between green and yellow images"width="33" height="87"/></td>
-		<td><img src="sample_2_yellow_large.gif" alt="yellow light enlarged" width="33" height="87"/></td>
+		<td><img src="images/sample_2_green_large.gif" alt="green light enlarged" width="33" height="87"/></td>
+		<td><img src="images/sample_2_green_yellow_diff.gif" alt="difference between green and yellow images"width="33" height="87"/></td>
+		<td><img src="images/sample_2_yellow_large.gif" alt="yellow light enlarged" width="33" height="87"/></td>
 		</tr>
 	</table>
 	<p>
 	If we compare the first and the second scene, we see they share many
 	of the same pixel color values. Rather than redrawing the whole canvas,
 	we can specify just the part that changes (that is, the smallest
-	rectangle that covers the part that changes). You'll see that the 
+	rectangle that covers the part that changes). You'll see that the
 	image descriptor before the second block of image data specifies
-	that it will start at the pixel at (2, 11) and draws a box that's 
+	that it will start at the pixel at (2, 11) and draws a box that's
 	7px wide by 16px tall. This is just large enough to cover the bottom two
 	lights. The works because we chose the &quot;do not dispose&quot; disposal
 	method for out graphics control extension block. In the same way,
 	the third and final image data block only renders the top two circles
 	to both fill in the red and cover up the yellow.
 	</p>
-	
-	
-	
+
+
+
 	<h2><a name="transparency">Transparency</a></h2>
 	<p>
 	Normally, GIF images are rectangles that cover up what ever background
@@ -188,7 +188,7 @@
 	color is encountered, the background is allowed to show through.
 	</p>
 	<p>
-	There are only two pieces of data we have to set to pull this off. First 
+	There are only two pieces of data we have to set to pull this off. First
 	we must set the Transparency Color Flag to 1. This is the lowest bit
 	in the packed byte of the Graphic Control Extension. This will tell
 	the decoder that we want our image to have a transparent component.
@@ -197,22 +197,22 @@
 	that contains this color. Therefore make sure it's not a color that you
 	are using else where in your image. The color you choose must be in
 	the active color table and you specify its value in the Transparent Color
-	Index byte by setting this value to the index of the color in the color 
+	Index byte by setting this value to the index of the color in the color
 	table.
 	</p>
 	<p>
 	Let's demonstrate this by revisiting the sample image we used
 	in <a href="bits_and_bytes.asp">Bits and Bytes</a>. We will update this
 	file to make the white center part transparent. Let's start creating
-	the Graphic Control Extension block that will do this for us. Again we 
+	the Graphic Control Extension block that will do this for us. Again we
 	start with the <span class="byte">21</span> <span class="byte">F9</span>
 	<span class="byte">04</span> punch. In the next byte, we need to flip
-	the transparent color flag to 1 (we can leave the others at zero) so 
-	this whole byte is simply <span class="byte">01</span>. The next two 
+	the transparent color flag to 1 (we can leave the others at zero) so
+	this whole byte is simply <span class="byte">01</span>. The next two
 	bytes can be left at zero.
 	</p>
 	<p>
-	We must now specify which color to disappear. 
+	We must now specify which color to disappear.
 	Recall that our sample image had the following global color table:
 	</p>
 	<table style="margin-left: auto; margin-right: auto">
@@ -226,9 +226,9 @@
  	We already know what we want to make all the white sections transparent.
 	The color white has an index of 0. Therefore we will specify a value
 	of <span class="byte">00</span> for the transparent color index block.
-	Had we wanted to make the red transparent we would have used 
-	<span class="byte">01</span>, or <span class="byte">02</span> for blue. 
-	Lastly we tack on the block terminator of <span class="byte">00</span> 
+	Had we wanted to make the red transparent we would have used
+	<span class="byte">01</span>, or <span class="byte">02</span> for blue.
+	Lastly we tack on the block terminator of <span class="byte">00</span>
 	and we're done. We have created the following block:
 	</p>
 	<p><span class="byte gif_graphic"> 21 </span><span class="byte gif_graphic"> F9 </span><span class="byte gif_graphic"> 04 </span><span class="byte gif_graphic"> 01 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span><span class="byte gif_graphic"> 00 </span></p>
@@ -236,7 +236,7 @@
 	Now, all we have to do is plug this into our sample image right before the
 	image descriptor. I've placed our original sample image on a black background
 	as well as the one we just made so you can see the results. I've also included
-	ones where red or blue are transparent. The last three differ by only the 
+	ones where red or blue are transparent. The last three differ by only the
 	transparent color index byte.
 	</p>
 	<table cellpadding="10px" style="text-align: center; margin-left: auto; margin-right: auto">
@@ -247,22 +247,22 @@
 			<th style="width:25%">Transparent <br/> Blue (<span class="byte">02</span>)</th>
 		</tr>
 		<tr>
-			<td style="width:25%; background-color: black"><img src="sample_1.gif" alt="previous sample" width="10" height="10"/></td>
-			<td style="width:25%; background-color: black"><img src="sample_1_trans.gif" alt="transparent white" width="10" height="10"/></td>
-			<td style="width:25%; background-color: black"><img src="sample_1_trans_red.gif" alt="transparent red" width="10" height="10"/></td>
-			<td style="width:25%; background-color: black"><img src="sample_1_trans_blue.gif" alt="transparent blue" width="10" height="10"/></td>
+			<td style="width:25%; background-color: black"><img src="images/sample_1.gif" alt="previous sample" width="10" height="10"/></td>
+			<td style="width:25%; background-color: black"><img src="images/sample_1_trans.gif" alt="transparent white" width="10" height="10"/></td>
+			<td style="width:25%; background-color: black"><img src="images/sample_1_trans_red.gif" alt="transparent red" width="10" height="10"/></td>
+			<td style="width:25%; background-color: black"><img src="images/sample_1_trans_blue.gif" alt="transparent blue" width="10" height="10"/></td>
 		</tr>
 	</table>
-	
 
-	
+
+
 	<!--<h2>Next: Sample Code</h2>	<p>	Finally, i'll show you some code that puts everything we've learned into	practice.	<a href="sample_code.asp">Continue...</a></p>-->
 </div>
 
 
 <div style="text-align:center; margin-top: 10px; padding-top: 10px; border-top: #cecece 1px solid">
-<a href="../../index.html">home</a> - 
-<a href="../../blog/index.html">blog</a> - 
+<a href="../../index.html">home</a> -
+<a href="../../blog/index.html">blog</a> -
 <a href="mailto:me@matthewflickinger.com">me@matthewflickinger.com</a>
 </div>
 
