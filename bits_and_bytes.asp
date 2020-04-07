@@ -414,7 +414,7 @@
 
 <div style="text-align:center; margin-top: 10px; padding-top: 10px; border-top: #cecece 1px solid">
 <a href="../../index.html">home</a> -
-<a href="../../blog/index.html">blog</a> -
+<a href="https://github.com/MrFlick/whats-in-a-gif">github</a> -
 <a href="mailto:me@matthewflickinger.com">me@matthewflickinger.com</a>
 </div>
 
