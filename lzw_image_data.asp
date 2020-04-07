@@ -469,6 +469,11 @@
 	that you are reinitializing your code table and it should too. Then you
 	start building your own codes again starting just after the value for
 	your end-of-information code (in our sample, we would start again at #6).
+	This means the same code in the code stream may mean different things
+	when the code table changes. We can think of each time the code table is
+	reset as a new "code unit". A code unit is just a combination of a code
+	table and the codes generated from that code table. Most smaller images
+	will only have one code unit.
 	</p>
 	<p>The final code stream would look like this:</p>
 
@@ -684,10 +689,12 @@
 	time you grab the next section of bits, you grab one more.
 	</p>
 	<p>
-	Note that the largest code size allowed is 12 bits. If you get to this
-	limit, the next code you encounter should be the <em>clear code</em> which
-	would tell you to reinitialize the code table. You then go back to using
-	the first code size and grow again when necessary.
+	Note that the largest code size allowed is 12 bits. Once you've placed
+	a value for #4095 in the code table, you should stop adding new codes.
+	You can continue to emit existing code, but eventually you'll want to 
+	emit a <em>clear code</em> to reinitialize the code table and start a 
+	new code unit. This will also reset the code sizes back to the first 
+	code size. It's almost as if you're encoding a new image at that point.
 	</p>
 	<p>
 	Jumping back to our sample image, we see that we have a minimum code
@@ -718,9 +725,13 @@
 	also see when we switched into code sizes of 4 bits in the second byte
 	(<span class="byte">2D</span>).
 	</p>
-	<p>When you run out of codes but have filled less than 8 bits of the byte, you
-	should just fill the remaining bits with zeros. Recall that the image data must
-	be broken up onto <a href="bits_and_bytes.asp#image_data_block">data sub-blocks</a>.
+	<p>
+	When you run out of codes but have filled less than 8 bits of the byte, you
+	should just fill the remaining bits with zeros.
+	</p>
+	</p>
+	Recall that the image data must be broken up into 
+	<a href="bits_and_bytes.asp#image_data_block">data sub-blocks</a>.
 	Each of the data sub-blocks begins with a byte that specifies how many
 	bytes of data. The value will be between 1 and 255. After you read those bytes,
 	the next byte indicates again how many bytes of data follow. You stop when you
@@ -729,6 +740,10 @@
 	the LZW code size is <span class="byte">16</span> which indicates that 22
 	bytes of data follow. After we reach those, we see the next byte is
 	<span class="byte">00</span> which means we are all done.
+	Note that nothing special happens when you move between sub-blocks; 
+	that is, it's possible for the different bits
+	for a particular code to span across bytes in different data sub-blocks.
+	The bytes themselves are treated as an uninterrupted stream.
 	</p>
 	<p>
 	Return codes from bytes the basically just the same process in reverse.
