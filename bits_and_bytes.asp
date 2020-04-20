@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>3MF Project: What's In A GIF - Bit by Byte</title>
 	<script type="text/javascript"></script>
-	<link rel="stylesheet" href="../proj.css" />
+	<link rel="stylesheet" href="proj.css" />
 	<style type="text/css">
 	.byte {font-family: Courier, fixed;
 		padding: .2em}

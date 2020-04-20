@@ -191,7 +191,7 @@
 	}
 
 	</style>
-	<link rel="stylesheet" href="../proj.css" />
+	<link rel="stylesheet" href="proj.css" />
 	
 </head>
 <body>

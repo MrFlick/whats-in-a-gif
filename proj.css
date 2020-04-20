@@ -1,0 +1,75 @@
+BODY
+{
+    font: .8em Verdana, sans;
+    color: #090909;
+    background-color: #efefef
+}
+#body
+{
+    margin: 7px 25px;
+    padding: 5px 25px 15px;
+    border: #cecece 1px solid;
+    border-top: #f8b82f 5px solid;
+    background-color: white;
+	line-height: 1.5em;
+}
+p {padding: .5em 0;}
+code {font-family: 'Courier New', monospace}
+
+#nav
+{
+	margin: 0 7px 2px 7px;
+	padding: 0 5px;
+    text-align: right
+}
+H1
+{
+    margin: 10px 0 2px;
+    COLOR: #f8b82f;
+    line-height: normal;
+}
+H1 .projname {COLOR: #cecece}
+
+.tryme
+{
+	margin: 15px 0 15px 30px;
+    padding: 5px;
+    background: #efefef;
+    border-left: #f8b82f 3px solid;
+    width: 350px;
+}
+.tryme FORM {DISPLAY: inline}
+.tryme .output {MARGIN-TOP: 5px}
+
+
+.projcode
+{
+	margin: 15px 30px;
+	padding: 5px;
+	background: #efefef;
+	border-left: #18d83c 3px solid;
+}
+
+.umlholder dt{FONT-WEIGHT: bolder}
+.umlholder dl {margin-left: 2em;}
+.umlholder dl.methods dt
+{
+	padding-left: 18px;
+    background: #FFF url("r/uml_method.gif") no-repeat center left;
+}
+.umlholder dl.properties dt
+{
+	padding-left: 18px;
+    background: #FFF url("r/uml_property.gif") no-repeat center left;
+}
+
+.projcode code .comment {color: #008080}
+.projcode code .kw {color: #0000FF}
+.projcode code .vl {color: #FF0000}
+.projcode code .fn {color: #FF00FF}
+
+.php code {color: #0000BB}
+.php code .comment {color: #FF8000}
+.php code .op {color: #008080}
+.php code .kw {color: #008080
+/* Localized */
