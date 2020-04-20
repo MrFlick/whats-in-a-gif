@@ -498,18 +498,19 @@
 
 	<p>Again, I'll list the algorithm and then we will walk though an example. Let
 	me define a few terms i will be using. CODE will be current code we're working
-	with. CODE-1 will be the code just before CODE in the code stream. {CODE}
+	with. PREVCODE will be the code just before CODE in the code stream. {CODE}
 	will be the value for CODE in the code table. For example, using the code
 	table we created during compression, if CODE=#7 then {CODE}=1,1,1.
-	In the same way, {CODE-1} would be the value in the code table for the
+	In the same way, {PREVCODE} would be the value in the code table for the
 	code that came before CODE. Looking at step 26 from the compression,
-	if CODE=#7, then {CODE-1} would be {#9}, not {#6}, which was 2,2.
+	if CODE=#7, then {PREVCODE} would be #9, not #6.
 	</p>
 
 	<ul>
 	<li>Initialize code table</li>
 	<li>let CODE be the first code in the code stream</li>
 	<li>output {CODE} to index stream</li>
+	<li>set PREVCODE = CODE</li>
 	<li>&lt;LOOP POINT&gt;</li>
 	<li>let CODE be the next code in the code stream</li>
 	<li>is CODE in the code table?</li>
@@ -517,14 +518,16 @@
 		<ul>
 		<li>output {CODE} to index stream</li>
 		<li>let K be the first index in {CODE}</li>
-		<li>add {CODE-1}+K to the code table</li>
+		<li>add {PREVCODE}+K to the code table</li>
+		<li>set PREVCODE = CODE</li>
 		</ul>
 	</li>
 	<li>No:
 		<ul>
-		<li>let K be the first index of {CODE-1}</li>
-		<li>output {CODE-1}+K to index stream</li>
-		<li>add {CODE-1}+K to code table</li>
+		<li>let K be the first index of {PREVCODE}</li>
+		<li>output {PREVCODE}+K to index stream</li>
+		<li>add {PREVCODE}+K to code table</li>
+		<li>set PREVCODE = CODE</li>
 		</ul>
 	</li>
 	<li>return to LOOP POINT</li>
@@ -543,14 +546,14 @@
 
 	<p>The next step is to read the first color code. In the following table you
 	will see the values of CODE highlighted in purple, and the values for
-	CODE-1 highlighted in green. Our first CODE value is #1. We then output
+	PREVCODE highlighted in green. Our first CODE value is #1. We then output
 	{#1}, or simply 1,  to the index stream [Step 0].</p>
 
 	<p>Now we enter the main loop of the algorithm. The next code gets assigned
 	to CODE which now makes that value #6. Next we check to see if this value
 	is in our code table. At this time, it is not. This means we must find the
-	first index in the value of {CODE-1} and call this K. Thus K = first index of
-	{CODE-1} = first index of {#1} = 1. Now we output {CODE-1} + K to the index
+	first index in the value of {PREVCODE} and call this K. Thus K = first index of
+	{PREVCODE} = first index of {#1} = 1. Now we output {PREVCODE} + K to the index
 	stream and add this value to our code table. The means we output 1,1 and
 	give this value a code of #6 [Step 1].</p>
 
@@ -618,7 +621,7 @@
 	table. Thus we dump {#6} to the index stream which would be 1,1.
 	Now we take the first index in {#6} and call that K. Here, {#6} has
 	two indexes, the first of which is 1; thus K = 1. Before moving
-	on, we add {CODE-1}+K to the code table. This #7 is now 1, 1, 1 [Step 2].</p>
+	on, we add {PREVCODE}+K to the code table. This #7 is now 1, 1, 1 [Step 2].</p>
 
 	<p>I've included a few more steps so you can see the algorithm in action. While
 	the explanation may sound complicated, you can see it's actually quite simple.
