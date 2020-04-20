@@ -255,9 +255,12 @@
 		</tr>
 	</table>
 
+	<h2>Next: GIF Explorer</h2>
+	<p>Now that you have seen how all the parts of a GIF file come together to make an image,
+		the last section allows you to decode and browse the contents of any GIF file
+		rather than just the sample images I included in this article.
+		<a href="gif_explorer.asp">Continue...</a></p>
 
-
-	<!--<h2>Next: Sample Code</h2>	<p>	Finally, i'll show you some code that puts everything we've learned into	practice.	<a href="sample_code.asp">Continue...</a></p>-->
 </div>
 
 
