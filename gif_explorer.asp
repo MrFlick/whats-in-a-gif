@@ -300,6 +300,7 @@
 		<div class="decoded_values"><dl>
 			<dt>Identifier</dt><dd>{{identifier}}</dd>
 			<dt>Code</dt><dd>{{code}}</dd>
+			<dt>Decoded</dt><dd>{{decode}}</dd>
 		</dl></div>
 		<div class="byte_view" data-block="{{_bidx}}"></div>
 	</div>

@@ -343,11 +343,24 @@ class GifReader {
         }
         const identifier = this.dv.readEscapedString(8);
         const code = this.dv.readEscapedString(3);
-        const { blocks } = this.scanBlocks();
+        let blocks = [];
+        let decode = '?';
+        if (identifier === 'NETSCAPE' & code === '2.0' & this.dv.peekByte() === 3 & this.dv.peekByte(1) === 1) {
+            // sepcial case for only known application extension
+            const length = this.dv.readUint8();
+            const boffset = this.dv.getOffset();
+            const subblock = this.dv.readUint8();
+            const loop = this.dv.readUint16();
+            const terminator = this.dv.readUint8();
+            blocks.push({ offset: boffset, length: 3 });
+            decode = `Loop: ${(loop > 0) ? loop : 'forever'}`;
+        } else {
+            blocks = this.scanBlocks().blocks;
+        }
         const length = this.dv.getOffset() - offset;
         return {
             offset, length, type: 'AX',
-            identifier, code, blocks,
+            identifier, code, blocks, decode,
         };
     }
 
