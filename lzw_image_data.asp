@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>3MF Project: What's In A GIF - LZW Image Data</title>
 	<script type="text/javascript"></script>
-	<link rel="stylesheet" href="../proj.css" />
+	<link rel="stylesheet" href="proj.css" />
 	<style type="text/css">
 	.byte {font-family: Courier, fixed;
 		padding: .2em}
@@ -38,6 +38,7 @@
 
 
 <h1>Project: <span class="projname">What's In A GIF - LZW Image Data</span></h1>
+<nav><a href="bits_and_bytes.asp" class="prev">Prev</a> - <a class="index" href="./">Index</a> - <a class="next" href="animation_and_transparency.asp">Next</a></nav>
 
 <div class="projdesc">
 	<p>
@@ -469,6 +470,11 @@
 	that you are reinitializing your code table and it should too. Then you
 	start building your own codes again starting just after the value for
 	your end-of-information code (in our sample, we would start again at #6).
+	This means the same code in the code stream may mean different things
+	when the code table changes. We can think of each time the code table is
+	reset as a new "code unit". A code unit is just a combination of a code
+	table and the codes generated from that code table. Most smaller images
+	will only have one code unit.
 	</p>
 	<p>The final code stream would look like this:</p>
 
@@ -492,18 +498,19 @@
 
 	<p>Again, I'll list the algorithm and then we will walk though an example. Let
 	me define a few terms i will be using. CODE will be current code we're working
-	with. CODE-1 will be the code just before CODE in the code stream. {CODE}
+	with. PREVCODE will be the code just before CODE in the code stream. {CODE}
 	will be the value for CODE in the code table. For example, using the code
 	table we created during compression, if CODE=#7 then {CODE}=1,1,1.
-	In the same way, {CODE-1} would be the value in the code table for the
+	In the same way, {PREVCODE} would be the value in the code table for the
 	code that came before CODE. Looking at step 26 from the compression,
-	if CODE=#7, then {CODE-1} would be {#9}, not {#6}, which was 2,2.
+	if CODE=#7, then {PREVCODE} would be #9, not #6.
 	</p>
 
 	<ul>
 	<li>Initialize code table</li>
 	<li>let CODE be the first code in the code stream</li>
 	<li>output {CODE} to index stream</li>
+	<li>set PREVCODE = CODE</li>
 	<li>&lt;LOOP POINT&gt;</li>
 	<li>let CODE be the next code in the code stream</li>
 	<li>is CODE in the code table?</li>
@@ -511,14 +518,16 @@
 		<ul>
 		<li>output {CODE} to index stream</li>
 		<li>let K be the first index in {CODE}</li>
-		<li>add {CODE-1}+K to the code table</li>
+		<li>add {PREVCODE}+K to the code table</li>
+		<li>set PREVCODE = CODE</li>
 		</ul>
 	</li>
 	<li>No:
 		<ul>
-		<li>let K be the first index of {CODE-1}</li>
-		<li>output {CODE-1}+K to index stream</li>
-		<li>add {CODE-1}+K to code table</li>
+		<li>let K be the first index of {PREVCODE}</li>
+		<li>output {PREVCODE}+K to index stream</li>
+		<li>add {PREVCODE}+K to code table</li>
+		<li>set PREVCODE = CODE</li>
 		</ul>
 	</li>
 	<li>return to LOOP POINT</li>
@@ -537,14 +546,14 @@
 
 	<p>The next step is to read the first color code. In the following table you
 	will see the values of CODE highlighted in purple, and the values for
-	CODE-1 highlighted in green. Our first CODE value is #1. We then output
+	PREVCODE highlighted in green. Our first CODE value is #1. We then output
 	{#1}, or simply 1,  to the index stream [Step 0].</p>
 
 	<p>Now we enter the main loop of the algorithm. The next code gets assigned
 	to CODE which now makes that value #6. Next we check to see if this value
 	is in our code table. At this time, it is not. This means we must find the
-	first index in the value of {CODE-1} and call this K. Thus K = first index of
-	{CODE-1} = first index of {#1} = 1. Now we output {CODE-1} + K to the index
+	first index in the value of {PREVCODE} and call this K. Thus K = first index of
+	{PREVCODE} = first index of {#1} = 1. Now we output {PREVCODE} + K to the index
 	stream and add this value to our code table. The means we output 1,1 and
 	give this value a code of #6 [Step 1].</p>
 
@@ -612,7 +621,7 @@
 	table. Thus we dump {#6} to the index stream which would be 1,1.
 	Now we take the first index in {#6} and call that K. Here, {#6} has
 	two indexes, the first of which is 1; thus K = 1. Before moving
-	on, we add {CODE-1}+K to the code table. This #7 is now 1, 1, 1 [Step 2].</p>
+	on, we add {PREVCODE}+K to the code table. This #7 is now 1, 1, 1 [Step 2].</p>
 
 	<p>I've included a few more steps so you can see the algorithm in action. While
 	the explanation may sound complicated, you can see it's actually quite simple.
@@ -684,10 +693,12 @@
 	time you grab the next section of bits, you grab one more.
 	</p>
 	<p>
-	Note that the largest code size allowed is 12 bits. If you get to this
-	limit, the next code you encounter should be the <em>clear code</em> which
-	would tell you to reinitialize the code table. You then go back to using
-	the first code size and grow again when necessary.
+	Note that the largest code size allowed is 12 bits. Once you've placed
+	a value for #4095 in the code table, you should stop adding new codes.
+	You can continue to emit existing code, but eventually you'll want to 
+	emit a <em>clear code</em> to reinitialize the code table and start a 
+	new code unit. This will also reset the code sizes back to the first 
+	code size. It's almost as if you're encoding a new image at that point.
 	</p>
 	<p>
 	Jumping back to our sample image, we see that we have a minimum code
@@ -718,9 +729,13 @@
 	also see when we switched into code sizes of 4 bits in the second byte
 	(<span class="byte">2D</span>).
 	</p>
-	<p>When you run out of codes but have filled less than 8 bits of the byte, you
-	should just fill the remaining bits with zeros. Recall that the image data must
-	be broken up onto <a href="bits_and_bytes.asp#image_data_block">data sub-blocks</a>.
+	<p>
+	When you run out of codes but have filled less than 8 bits of the byte, you
+	should just fill the remaining bits with zeros.
+	</p>
+	</p>
+	Recall that the image data must be broken up into 
+	<a href="bits_and_bytes.asp#image_data_block">data sub-blocks</a>.
 	Each of the data sub-blocks begins with a byte that specifies how many
 	bytes of data. The value will be between 1 and 255. After you read those bytes,
 	the next byte indicates again how many bytes of data follow. You stop when you
@@ -729,6 +744,10 @@
 	the LZW code size is <span class="byte">16</span> which indicates that 22
 	bytes of data follow. After we reach those, we see the next byte is
 	<span class="byte">00</span> which means we are all done.
+	Note that nothing special happens when you move between sub-blocks; 
+	that is, it's possible for the different bits
+	for a particular code to span across bytes in different data sub-blocks.
+	The bytes themselves are treated as an uninterrupted stream.
 	</p>
 	<p>
 	Return codes from bytes the basically just the same process in reverse.
@@ -753,7 +772,7 @@
 
 <div style="text-align:center; margin-top: 10px; padding-top: 10px; border-top: #cecece 1px solid">
 <a href="../../index.html">home</a> -
-<a href="../../blog/index.html">blog</a> -
+<a href="https://github.com/MrFlick/whats-in-a-gif">github</a> -
 <a href="mailto:me@matthewflickinger.com">me@matthewflickinger.com</a>
 </div>
 

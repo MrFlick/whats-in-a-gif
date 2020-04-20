@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>3MF Project: What's In A GIF - Bit by Byte</title>
 	<script type="text/javascript"></script>
-	<link rel="stylesheet" href="../proj.css" />
+	<link rel="stylesheet" href="proj.css" />
 	<style type="text/css">
 	.byte {font-family: Courier, fixed;
 		padding: .2em}
@@ -30,7 +30,7 @@
 
 
 <h1>Project: <span class="projname">What's In A GIF - Bit by Byte</span></h1>
-
+<nav><a href="./" class="prev">Prev</a> - <a class="index" href="./">Index</a> - <a class="next" href="lzw_image_data.asp">Next</a></nav>
 <div class="projdesc">
 	<p>
 	We sill start off by walking though the different parts of a GIF file.
@@ -414,7 +414,7 @@
 
 <div style="text-align:center; margin-top: 10px; padding-top: 10px; border-top: #cecece 1px solid">
 <a href="../../index.html">home</a> -
-<a href="../../blog/index.html">blog</a> -
+<a href="https://github.com/MrFlick/whats-in-a-gif">github</a> -
 <a href="mailto:me@matthewflickinger.com">me@matthewflickinger.com</a>
 </div>
 

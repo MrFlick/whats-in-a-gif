@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>3MF Project: What's In A GIF - LZW Image Data</title>
 	<script type="text/javascript"></script>
-	<link rel="stylesheet" href="../proj.css" />
+	<link rel="stylesheet" href="proj.css" />
 	<style type="text/css">
 	#code_table {margin: auto; margin-right:auto; border: 1px solid black}
 	#code_table td {text-align: right;}
@@ -73,7 +73,7 @@
 
 <div style="text-align:center; margin-top: 10px; padding-top: 10px; border-top: #cecece 1px solid">
 <a href="../../index.html">home</a> - 
-<a href="../../blog/index.html">blog</a> - 
+<a href="https://github.com/MrFlick/whats-in-a-gif">github</a> -
 <a href="mailto:me@matthewflickinger.com">me@matthewflickinger.com</a>
 </div>
 

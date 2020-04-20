@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>3MF Project: What's In A GIF - Animation and Transparency</title>
 	<script type="text/javascript"></script>
-	<link rel="stylesheet" href="../proj.css" />
+	<link rel="stylesheet" href="proj.css" />
 	<style type="text/css">
 	.byte {font-family: Courier, fixed;
 		padding: .2em}
@@ -29,6 +29,7 @@
 
 
 <h1>Project: <span class="projname">What's In A GIF - Animation and Transparency</span></h1>
+<nav><a href="lzw_image_data.asp" class="prev">Prev</a> - <a class="index" href="./">Index</a> - <a class="next" href="gif_explorer.asp">Next</a></nav>
 
 <div class="projdesc">
 	<p>
@@ -254,15 +255,18 @@
 		</tr>
 	</table>
 
+	<h2>Next: GIF Explorer</h2>
+	<p>Now that you have seen how all the parts of a GIF file come together to make an image,
+		the last section allows you to decode and browse the contents of any GIF file
+		rather than just the sample images I included in this article.
+		<a href="gif_explorer.asp">Continue...</a></p>
 
-
-	<!--<h2>Next: Sample Code</h2>	<p>	Finally, i'll show you some code that puts everything we've learned into	practice.	<a href="sample_code.asp">Continue...</a></p>-->
 </div>
 
 
 <div style="text-align:center; margin-top: 10px; padding-top: 10px; border-top: #cecece 1px solid">
 <a href="../../index.html">home</a> -
-<a href="../../blog/index.html">blog</a> -
+<a href="https://github.com/MrFlick/whats-in-a-gif">github</a> -
 <a href="mailto:me@matthewflickinger.com">me@matthewflickinger.com</a>
 </div>
 
