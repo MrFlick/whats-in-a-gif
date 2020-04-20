@@ -1,3 +1,5 @@
+/* eslint-disable strict, no-mixed-operators, no-console */
+
 'use strict';
 
 class GifExplorer {
@@ -217,10 +219,12 @@ class FrameViewer {
         const pallete = this.data[idx.color].colors;
         const cidx = this.data[idx.data].indexStream;
         for (let i = 0, poff = 0; i < cidx.length; i += 1, poff += 4) {
+            /* eslint-disable prefer-destructuring */
             pixels[poff + 0] = pallete[cidx[i]][0];
             pixels[poff + 1] = pallete[cidx[i]][1];
             pixels[poff + 2] = pallete[cidx[i]][2];
             pixels[poff + 3] = 255;
+            /* eslint-enable prefer-destructuring */
         }
         ctx.putImageData(imgData, 0, 0);
     }
@@ -245,10 +249,12 @@ class FrameViewer {
                 const seq = unit.table[code];
                 for (const index of seq) {
                     const color = pallete[table[index]];
+                    /* eslint-disable prefer-destructuring */
                     pixels[poff + 0] = color[0];
                     pixels[poff + 1] = color[1];
                     pixels[poff + 2] = color[2];
                     pixels[poff + 3] = 255;
+                    /* eslint-enable prefer-destructuring */
                     poff += 4;
                 }
             }
@@ -327,8 +333,9 @@ class ColorTableViewer {
         if (x < 0) x = 0; if (x > this.canvas.width) x = this.canvas.width;
         if (y < 0) y = 0; if (y > this.canvas.height) y = this.canvas.height;
 
-        const row = Math.max(Math.min(Math.floor(y / (this.boxSize + this.boxPadding)), this.nRows - 1), 0);
-        const col = Math.max(Math.min(Math.floor(x / (this.boxSize + this.boxPadding)), this.nCols - 1), 0);
+        const clamp = (val, min, max) => Math.max(Math.min(val, max), min);
+        const row = clamp(Math.floor(y / (this.boxSize + this.boxPadding)), 0, this.nRows - 1);
+        const col = clamp(Math.floor(x / (this.boxSize + this.boxPadding)), 0, this.nCols - 1);
         const idx = row * this.nCols + col;
         const color = this.data.colors[idx];
         this.onColorEnter(evt, idx, color);
@@ -1084,7 +1091,7 @@ class TemplateRenderer {
 
     getTemplateValue(string, data, state) {
         // find "variable(>function?)(|template?)"
-        const regexp = /^([^}]+?)(?:([>])([^}@\|]+))?(?:([@\|])([^}@\|]+))?$/;
+        const regexp = /^([^}]+?)(?:([>])([^}@|]+))?(?:([@|])([^}@|]+))?$/;
         const [, field, , trans, op, param] = string.match(regexp);
         let val = '';
         if (field === '.') {
@@ -1107,7 +1114,7 @@ class TemplateRenderer {
                 val = val.childNodes[0].textContent;
             }
         }
-        if (val === undefined) { val = ""; }
+        if (val === undefined) { val = ''; }
         return val;
     }
 

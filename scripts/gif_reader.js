@@ -1,9 +1,12 @@
+/* eslint-disable strict, no-unused-vars */
+/* global FileReaderSync BitReader DataReader */
+
 'use strict';
 
 // Requires DataReader and BitReader from data_helpers.js
 // Also assumes we can access synchronous file reader
 
-class GifReader  {
+class GifReader {
     constructor() {
         this.file = null;
         this.dv = null;
@@ -216,7 +219,7 @@ class GifReader  {
         let blockIndex = 0;
 
         for (const { offset, length } of blocks) {
-            blockIndex ++;
+            blockIndex++;
             br.pushBytes(this.dv.slice(offset, length));
             while (br.hasBits(size)) {
                 const codeStart = br.getState();
@@ -243,8 +246,10 @@ class GifReader  {
                     const prevCode = codeStream[codeStream.length - 1];
                     if (code <= lastCode) {
                         indexStream.push(...codeTable[code]);
+                        // eslint-disable-next-line prefer-destructuring
                         k = codeTable[code][0];
                     } else {
+                        // eslint-disable-next-line prefer-destructuring
                         k = codeTable[prevCode][0];
                         indexStream.push(...codeTable[prevCode], k);
                     }
@@ -263,7 +268,8 @@ class GifReader  {
         return Object.assign({}, bdata, {
             indexStream, clearCode, eoiCode,
             codeUnits, blockCount: blocks.length,
-            codeUnitCount: codeUnits.length});
+            codeUnitCount: codeUnits.length,
+        });
         // return {
         //     ...data, indexStream, clearCode, eoiCode,
         //     codeUnits, blockCount: blocks.length,

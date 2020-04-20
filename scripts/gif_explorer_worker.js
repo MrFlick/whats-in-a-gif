@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-globals */
+/* global GifReader */
+
 // worker thread used to decode file
 // mostly just forwards message to GifReader
 

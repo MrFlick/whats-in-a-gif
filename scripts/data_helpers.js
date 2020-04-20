@@ -1,3 +1,5 @@
+/* eslint-disable strict, no-unused-vars */
+
 'use strict';
 
 class DataReader {
