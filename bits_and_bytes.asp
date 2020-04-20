@@ -30,7 +30,7 @@
 
 
 <h1>Project: <span class="projname">What's In A GIF - Bit by Byte</span></h1>
-
+<nav><a href="./" class="prev">Prev</a> - <a class="index" href="./">Index</a> - <a class="next" href="lzw_image_data.asp">Next</a></nav>
 <div class="projdesc">
 	<p>
 	We sill start off by walking though the different parts of a GIF file.

@@ -29,6 +29,7 @@
 
 
 <h1>Project: <span class="projname">What's In A GIF - Animation and Transparency</span></h1>
+<nav><a href="lzw_image_data.asp" class="prev">Prev</a> - <a class="index" href="./">Index</a> - <a class="next" href="gif_explorer.asp">Next</a></nav>
 
 <div class="projdesc">
 	<p>

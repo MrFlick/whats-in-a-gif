@@ -189,7 +189,6 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
-
 	</style>
 	<link rel="stylesheet" href="proj.css" />
 	
@@ -201,7 +200,7 @@
 
 
 <h1>Project: <span class="projname">What's In A GIF - GIF Explorer</span></h1>
-
+<nav><a href="animation_and_transparency.asp" class="prev">Prev</a> - <a class="index" href="./">Index</a> - <a class="next" href="./">Next</a></nav>
 <p>
 	This page will allow you to explore the different parts
 	of an existing GIF file. You will be able to explore the 

@@ -29,6 +29,7 @@ H1
     line-height: normal;
 }
 H1 .projname {COLOR: #cecece}
+nav {text-align: right}
 
 .tryme
 {
@@ -71,5 +72,4 @@ H1 .projname {COLOR: #cecece}
 .php code {color: #0000BB}
 .php code .comment {color: #FF8000}
 .php code .op {color: #008080}
-.php code .kw {color: #008080
-/* Localized */
+.php code .kw {color: #008080}

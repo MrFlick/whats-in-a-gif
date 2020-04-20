@@ -38,6 +38,7 @@
 
 
 <h1>Project: <span class="projname">What's In A GIF - LZW Image Data</span></h1>
+<nav><a href="bits_and_bytes.asp" class="prev">Prev</a> - <a class="index" href="./">Index</a> - <a class="next" href="animation_and_transparency.asp">Next</a></nav>
 
 <div class="projdesc">
 	<p>
