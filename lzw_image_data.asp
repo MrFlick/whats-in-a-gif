@@ -128,14 +128,14 @@
 	the special codes depends on the value of the LZW minimum code size
 	from the image data block. If the LZW minimum code size is the same as
 	the color table size, then special codes immediately follow the colors; however
-	it is possible to specify a larger LWZ minimum code size which may leave
+	it is possible to specify a larger LZW minimum code size which may leave
 	a gap in the codes where no colors are assigned. This can be
 	summarized in the <a name="color_table_size">following table</a>.
 	</p>
 
 	<div style="text-align:center">
 	<table id="global_color_size">
-	<tr><th>LWZ Min Code<br/>Size</th><th>Color<br/>Codes</th><th>Clear<br/>Code</th><th>EOI<br/>Code</th></tr>
+	<tr><th>LZW Min Code<br/>Size</th><th>Color<br/>Codes</th><th>Clear<br/>Code</th><th>EOI<br/>Code</th></tr>
 	<tr><td>2</td><td>#0-#3</td><td>#4</td><td>#5</td></tr>
 	<tr><td>3</td><td>#0-#7</td><td>#8</td><td>#9</td></tr>
 	<tr><td>4</td><td>#0-#15</td><td>#16</td><td>#17</td></tr>
