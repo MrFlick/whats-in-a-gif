@@ -681,13 +681,13 @@
 	byte. I'll call this new value the <em>first code size</em>.
 	</p>
 	<p>
-	We now know how many bytes the first code will be. This size will probably
+	We now know how many bits the first code will be. This size will probably
 	work for the next few codes as well, but recall that the GIF format
 	allows for flexible code sizes. As larger code values get added to your
 	code table, you will soon realize that you need larger code sizes if you
 	were to output those values. When you are encoding the data, you increase
-	your code size as soon as your write out the code equal to
-	2^(current code size)-1. If you are decoding from codes to indexes,
+	your code size for the next code you emit after you add 2^(current code size) 
+	to your code table. If you are decoding from codes to indexes,
 	you need to increase your code size as soon as you add the code value that
 	is equal to 2^(current code size)-1 to your code table. That is, the next
 	time you grab the next section of bits, you grab one more.
