@@ -26,9 +26,9 @@
 	.alg_steps th, .alg_steps td {border: 1px solid black}
 	.alg_steps .index {padding: 0 .3em}
 	.alg_steps .processed {color: #CCC}
-	.alg_steps .buffer {background: #C8DBD9 url(highlight_green.gif) repeat-x center left;
+	.alg_steps .buffer {background: #C8DBD9 url(images/highlight_green.gif) repeat-x center left;
 		border-top: 1px solid #AAA2A2; border-bottom: 1px solid #AAA2A2;}
-	.alg_steps .current {background: #D0C4C4 url(highlight_purple.gif) repeat-x center left;
+	.alg_steps .current {background: #D0C4C4 url(images/highlight_purple.gif) repeat-x center left;
 		border-top: 1px solid #98A5A4; border-bottom: 1px solid #98A5A4;}
 	</style>
 </head>
@@ -756,6 +756,13 @@
 	</p>
 	<p style="text-align:center"><img src="images/lzw_decoding_bytes.gif" alt="Decoding LZW Bytes" style="border: 1px solid black" / WIDTH="500" HEIGHT="220"></p>
 
+
+	<h2>Interactive Example</h2>
+	<p>To view all of the details involved in encoding the sample image,
+	you can check out the <a href="gif_encoder.asp">interative encoder</a>.
+	This is a browser based encoder where you can edit a sample image
+	and see how those chages effect the output.
+	</p>
 
 	<h2>Next: Animation and Transparency</h2>
 	<p>That is pretty much everything you need to know to read or generate
