@@ -311,6 +311,9 @@
 	<div class="END gif_trailer gif_section">
 		<div class="byte_view" data-block="{{_bidx}}"></div>
 	</div>
+	<div class="TRL gif_trailing_trivia gif_section">
+		<div class="byte_view" data-block="{{_bidx}}"></div>
+	</div>
 </template>
 <template id="byte_view_template">
 	<h4>Byte View</h4>

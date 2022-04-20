@@ -98,6 +98,12 @@ class DataReader {
         return str;
     }
 
+    readToEnd() {
+        const bytes = this.slice(this.index, this.dv.byteLength - this.index);
+        this.index = this.dv.byteLength + 1;
+        return bytes;
+    }
+
     hasMore(x) {
         this.check(1);
         return this.index <= this.dv.byteLength - (x || 1);

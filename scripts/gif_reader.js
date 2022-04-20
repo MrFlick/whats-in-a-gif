@@ -68,6 +68,9 @@ class GifReader {
             } else if (block === 0x3B) {
                 const trailer = this.parseTrailer();
                 parts.push(trailer);
+                if (this.dv.hasMore()) {
+                    parts.push(this.parseTrailingTrivia());
+                }
             } else {
                 throw this.getByteError('Unexpected block type', block);
             }
@@ -372,6 +375,15 @@ class GifReader {
             throw this.getByteError('Wrong trailer byte', marker);
         }
         return { offset, length, type: 'END' };
+    }
+
+    parseTrailingTrivia() {
+        const offset = this.dv.getOffset();
+        const bytes = this.dv.readToEnd();
+        const { length } = bytes;
+        return {
+            offset, length, type: 'TRL', bytes,
+        };
     }
 
     scanBlocks() {

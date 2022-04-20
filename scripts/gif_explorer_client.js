@@ -75,6 +75,7 @@ class GifView {
             CX: 'Comment Extension',
             AX: 'Application Extension',
             END: 'Terminator',
+            TRL: 'Trailing Trivia',
         };
         this.tt = new TemplateRenderer();
         this.initTemplates();
