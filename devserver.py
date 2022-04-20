@@ -11,7 +11,10 @@ python devserver.py [port]
 import sys
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
-SimpleHTTPRequestHandler.extensions_map.update({".asp": "text/html"})
+SimpleHTTPRequestHandler.extensions_map.update({
+    ".asp": "text/html",
+    ".js": "application/x-javascript"
+    })
 
 host = 'localhost'
 port = 8080
