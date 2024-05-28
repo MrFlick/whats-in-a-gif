@@ -61,7 +61,7 @@ class GifReader {
                 const idesc = this.parseImageDescriptor();
                 parts.push(idesc);
                 if (idesc.hasColorTable) {
-                    parts.push(this.scanColorTable(idesc.colorTableSize));
+                    parts.push(this.parseColorTable(idesc.colorTableSize));
                 }
                 const iblocks = this.parseImageData();
                 parts.push(iblocks);
