@@ -185,8 +185,8 @@ class GridDraw {
     getCellIndex(event) {
         const point = this.getMousePosition(event);
         const calc = {
-            r: Math.floor(point.x / (this.canvas.width / this.cols)),
-            c: Math.floor(point.y / (this.canvas.height / this.rows)),
+            c: Math.floor(point.x / (this.canvas.width / this.cols)),
+            r: Math.floor(point.y / (this.canvas.height / this.rows)),
             i: 0,
         };
         if (calc.r < 0) { calc.r = 0; }
@@ -203,10 +203,10 @@ class GridDraw {
         const ctx = this.canvas.getContext('2d');
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.cols; col++) {
-                const idx = row * this.rows + col;
+                const idx = row * this.cols + col;
                 ctx.fillStyle = this.colors[this.data[idx]];
-                ctx.fillRect(row * cellHeight, col * cellWidth,
-                    cellHeight, cellWidth);
+                ctx.fillRect(col * cellWidth, row * cellHeight,
+                    cellWidth, cellHeight);
             }
         }
         ctx.strokeStyle = 'rgb(75,75,75)';
