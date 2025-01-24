@@ -219,7 +219,21 @@ class GifReader {
         let growCode = (2 << size - 1) - 1;
 
         let isInitialized = false;
+        let isCodeUnitInitialized = false;
         let blockIndex = 0;
+
+        const initCodeUnit = (codeStart) => {
+            codeUnits.push({ stream: [], table: [], start: codeStart });
+            codeStream = codeUnits[codeUnits.length - 1].stream;
+            codeTable = codeUnits[codeUnits.length - 1].table;
+            for (let i = 0; i <= eoiCode; i++) {
+                codeTable[i] = (i < clearCode) ? [i] : [];
+            }
+            lastCode = eoiCode;
+            size = lzwmin + 1;
+            growCode = (2 << size - 1) - 1;
+            isCodeUnitInitialized = true;
+        }
 
         for (const { offset, length } of blocks) {
             blockIndex++;
@@ -231,17 +245,10 @@ class GifReader {
                     codeStream.push(code);
                     break;
                 } else if (code === clearCode) {
-                    codeUnits.push({ stream: [], table: [], start: codeStart });
-                    codeStream = codeUnits[codeUnits.length - 1].stream;
-                    codeTable = codeUnits[codeUnits.length - 1].table;
-                    for (let i = 0; i <= eoiCode; i++) {
-                        codeTable[i] = (i < clearCode) ? [i] : [];
-                    }
-                    lastCode = eoiCode;
-                    size = lzwmin + 1;
-                    growCode = (2 << size - 1) - 1;
+                    initCodeUnit(codeStart);
                     isInitialized = false;
                 } else if (!isInitialized) {
+                    if (!isCodeUnitInitialized) initCodeUnit(codeStart);
                     indexStream.push(...codeTable[code]);
                     isInitialized = true;
                 } else {
